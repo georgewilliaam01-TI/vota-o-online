@@ -489,12 +489,7 @@ function LinhaCandidato({ opcao, onMudou }: { opcao: Opcao; onMudou: () => void 
         </span>
       )}
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-medium">
-          {opcao.nome}
-          {opcao.numero ? (
-            <span className="ml-2 font-mono text-xs text-muted-foreground">{opcao.numero}</span>
-          ) : null}
-        </p>
+        <p className="truncate text-sm font-medium">{opcao.nome}</p>
         {opcao.descricao && (
           <p className="truncate text-xs text-muted-foreground">{opcao.descricao}</p>
         )}
@@ -528,7 +523,6 @@ function FormCandidato({
   onMudou: () => void;
 }) {
   const [nome, setNome] = useState("");
-  const [numero, setNumero] = useState("");
   const [descricao, setDescricao] = useState("");
   const [arquivo, setArquivo] = useState<File | null>(null);
   const [salvando, setSalvando] = useState(false);
@@ -558,7 +552,6 @@ function FormCandidato({
       cargo_id: cargoId,
       tipo: "candidato",
       nome: nome.trim(),
-      numero: numero.trim() || null,
       descricao: descricao.trim() || null,
       foto_url: fotoUrl,
       ordem,
@@ -569,7 +562,6 @@ function FormCandidato({
       return;
     }
     setNome("");
-    setNumero("");
     setDescricao("");
     setArquivo(null);
     onMudou();
@@ -584,17 +576,10 @@ function FormCandidato({
         onChange={(e) => setNome(e.target.value)}
       />
       <Input
-        placeholder="Número/legenda (opcional)"
-        value={numero}
-        maxLength={20}
-        onChange={(e) => setNumero(e.target.value)}
-      />
-      <Input
         placeholder="Descrição curta (opcional)"
         value={descricao}
         maxLength={140}
         onChange={(e) => setDescricao(e.target.value)}
-        className="sm:col-span-2"
       />
       <Input
         type="file"

@@ -59,11 +59,6 @@ export function CardOpcao({ opcao, selecionada, onSelecionar }: Props) {
 
       <span className="min-w-0 flex-1 pr-6">
         <span className="block truncate font-semibold">{opcao.nome}</span>
-        {opcao.numero && (
-          <span className="mt-0.5 inline-block rounded-md bg-secondary px-1.5 py-0.5 font-mono text-xs text-secondary-foreground">
-            {opcao.numero}
-          </span>
-        )}
         {opcao.descricao && (
           <span className="mt-1 block text-sm text-muted-foreground">{opcao.descricao}</span>
         )}

@@ -168,9 +168,6 @@ function PainelCargo({
                   <div className="flex items-center justify-between gap-2">
                     <p className="truncate text-sm font-medium">
                       {opcao.nome}
-                      {opcao.numero ? (
-                        <span className="ml-2 text-xs text-muted-foreground">{opcao.numero}</span>
-                      ) : null}
                       {lider && (
                         <Crown
                           className="ml-2 inline size-4 text-accent"
